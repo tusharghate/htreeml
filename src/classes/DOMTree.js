@@ -33,7 +33,6 @@ class DOMTree {
 			self.tags = self.getTags();
 			
 			self.build();
-			console.log(self.tags);
 			self.draw();
 		});
 	}
@@ -101,9 +100,23 @@ class DOMTree {
 		return;
 	}
 	
-	draw(element) {
+	draw(element, depth = 0) {
 		const self = this;
-		console.log(util.inspect(self.rootElement, false, null));
+		let el = element || self.rootElement;
+		
+		// Add depth
+		let padding = '';
+		for (var i = 0; i <= depth; i++) {
+			padding += ' ';
+		}
+		
+		console.log(padding + ' ├ ' + el.tag.name);
+		
+		for (let child of el.children) {
+			self.draw(child, depth + 4);
+		} 
+		
+		return;
 	}
 }
 
