@@ -1,8 +1,9 @@
 #!/usr/bin/env node --harmony
 
-var program = require('commander');
+let program = require('commander');
+let DOMTreeParser = require('./src/classes/DOMTreeParser.js');
 
-var DOMTree = require('./src/classes/DOMTree.js');
+process.on('unhandledRejection', console.log.bind(console));
 
 program
 	.version('0.0.1')
@@ -10,10 +11,15 @@ program
 	.arguments('<file>')
 	
 	.action(function(file) {
+		let domTreeParser = new DOMTreeParser();
 		
-		// Do something.
-		var domTree = new DOMTree(file);
-	
+		domTreeParser
+			.parse(file)
+			.then(function(domTree) {
+				domTree.draw();
+			}, (err) => {
+				console.error("Uh oh! Unable to build DOM Tree due to:", err);
+			});
 	})
 
 	.parse(process.argv);

@@ -1,12 +1,3 @@
-// Constants
-const regExpPatterns = {
-	htmlClosingTag: /(<\/\w+>)/g 
-};
-
-const regExps = {
-	htmlClosingTag: new RegExp(regExpPatterns.htmlClosingTag)
-};
-
 class DOMTag {
 	
 	constructor(tag, index) {
