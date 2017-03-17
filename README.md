@@ -4,6 +4,8 @@
 
 `htreeml` is a command-line tool written in Node for visualizing HTML DOM trees.
 
+![](https://github.com/tusharghate/htreeml/blob/master/assets/images/htreeml-demo-clip.gif?raw=true)
+
 ## Install
 
 ### npm
