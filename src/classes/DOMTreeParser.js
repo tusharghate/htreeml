@@ -1,3 +1,9 @@
+/**
+ * DOMTreeParser
+ * Responsible for parsing an HTML file and constructing a DOM tree
+ *
+ */
+
 // Modules
 const fs = require('fs');
 const path = require('path');
@@ -5,12 +11,10 @@ const DOMTree = require('./DOMTree.js');
 
 class DOMTreeParser {
 
-	constructor() {
-
-	}
+	constructor() {}
 
 	/**
-	 * Reads and parses the HTML file to create the DOM Tree
+	 * Reads and parses the HTML file to create a DOM Tree
 	 *
 	 * @param {String} file
 	 * @return {Promise}

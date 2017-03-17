@@ -1,3 +1,12 @@
+/**
+ * DOMTree
+ * Represents the DOM tree of DOM elements
+ *
+ * {String} html - The raw HTML that makes up this tree
+ * {Array<DOMTag>} tags - The DOM tags that make up this tree
+ * {DOMElement} rootElement - The root DOM element that makes up this tree
+ */
+
 // Modules
 const fs = require('fs');
 const colors = require('colors');
@@ -33,6 +42,8 @@ class DOMTree {
 
 	/**
 	 * Builds all of the tags (in order) that make up this DOM tree
+	 *
+	 * @param {String} html
 	 */
 	buildTags(html) {
 		const self = this;
@@ -47,7 +58,7 @@ class DOMTree {
 	/**
 	 * Traverses through the DOM tags and builds the tree
 	 *
-	 * @param {DOMElement} [element]
+	 * @param {DOMElement} element
 	 */
 	buildTree(element) {
 		const self = this;
@@ -95,7 +106,7 @@ class DOMTree {
 	draw(element, depth = 0) {
 		const self = this;
 		let el = element || self.rootElement;
-		
+
 		if (!el) {
 			console.log(colors.red.bold('Tree must have a root element!'));
 			return;
