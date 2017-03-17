@@ -37,10 +37,11 @@ describe('DOMTreeParser', () => {
                 });
 
             let htmlFile = domTreeParser
-                .parse('index.html')
+                .parse('./test/data/index.html')
                 .then(() => {
                     return true;
                 }, (error) => {
+                    console.log(error);
                     return false;
                 });
 
